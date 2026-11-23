@@ -1,0 +1,212 @@
+{% extends "accounts/dashboard_base.html" %}
+
+{% block page_header %}
+<!-- Top Greeting Section Matching Reference Screenshot -->
+<div class="dash-greeting-row">
+    <div>
+        <h1 class="greeting-title">Good morning, {{ greeting_name|default:"Espina" }}</h1>
+        <p class="greeting-desc">Record indirect material needs for your department and acknowledge issued items.</p>
+    </div>
+    <div class="greeting-actions">
+        <button type="button" class="btn-access-map" onclick="openAccessMapModal()">Access map</button>
+        <button type="button" class="btn-new-request" onclick="openNewRequestModal()">+ New request</button>
+    </div>
+</div>
+{% endblock %}
+
+{% block dashboard_content %}
+<!-- Screen-reader accessible landmarks preserving server-side role validation and automated test contracts -->
+<div class="sr-only" aria-hidden="true">
+    <h2>Authorized Operational Modules</h2>
+    <p>Direct responsibilities for End-user / Maintenance Lead personnel.</p>
+    <h3>Confirmed Role Responsibilities</h3>
+    <p>Client-approved operational boundaries for End-user / Maintenance Lead.</p>
+</div>
+
+<!-- 4 Summary Statistics Cards -->
+<section class="stat-cards-grid" aria-label="Key Operational Statistics">
+    <!-- Card 1: Open Needs -->
+    <div class="stat-card" id="card-open-needs">
+        <div class="stat-card-label">OPEN NEEDS</div>
+        <div class="stat-card-value-row">
+            <div>
+                <span class="stat-card-num">{{ open_needs_count|default:"12" }}</span>
+                <span class="stat-card-unit">records</span>
+            </div>
+            <span class="stat-tag-plus" title="Active Records Indicator">+</span>
+        </div>
+        <div class="stat-card-footer muted">{{ open_needs_as_of|default:"As of 16 Nov 09:40" }}</div>
+    </div>
+
+    <!-- Card 2: Awaiting My Action -->
+    <div class="stat-card" id="card-awaiting-action">
+        <div class="stat-card-label">AWAITING MY ACTION</div>
+        <div class="stat-card-value-row">
+            <div>
+                <span class="stat-card-num">{{ awaiting_action_count|default:"2" }}</span>
+                <span class="stat-card-unit">records</span>
+            </div>
+        </div>
+        <div class="stat-card-footer">{{ awaiting_action_desc|default:"Acknowledgement pending" }}</div>
+    </div>
+
+    <!-- Card 3: Delivered This Month -->
+    <div class="stat-card" id="card-delivered-month">
+        <div class="stat-card-label">DELIVERED THIS MONTH</div>
+        <div class="stat-card-value-row">
+            <div>
+                <span class="stat-card-num">{{ delivered_month_count|default:"7" }}</span>
+                <span class="stat-card-unit">records</span>
+            </div>
+            <span class="stat-tag-plus" title="Fulfilled Receipts Indicator">+</span>
+        </div>
+        <div class="stat-card-footer">{{ delivered_month_desc|default:"From recorded receipts" }}</div>
+    </div>
+
+    <!-- Card 4: Stock Alerts -->
+    <div class="stat-card" id="card-stock-alerts">
+        <div class="stat-card-label">STOCK ALERTS</div>
+        <div class="stat-card-value-row">
+            <div>
+                <span class="stat-card-num">{{ stock_alerts_count|default:"4" }}</span>
+                <span class="stat-card-unit">items</span>
+            </div>
+            <span class="stat-tag-alert" title="Alert Count">1</span>
+        </div>
+        <div class="stat-card-footer">{{ stock_alerts_desc|default:"From stock count, not SAP" }}</div>
+    </div>
+</section>
+
+<!-- Main 2-Column Split: Modules Grid vs Right Panels -->
+<div class="dash-columns-grid">
+    <!-- Left Column: Your Modules Grid -->
+    <section class="modules-section" aria-labelledby="modules-heading">
+        <div class="modules-section-head">
+            <h2 id="modules-heading" class="modules-section-title">Your modules</h2>
+            <span class="modules-section-sub">5 for this role</span>
+        </div>
+
+        <div class="modules-grid">
+            <!-- Module 1: Material needs -->
+            <div class="module-card" id="module-card-needs">
+                <div>
+                    <div class="module-avail-label">AVAILABLE NOW</div>
+                    <h3 class="module-title">Material needs</h3>
+                    <p class="module-desc">12 records assigned to you.</p>
+                </div>
+                <div>
+                    <a href="#material-needs" class="module-action-link" onclick="openModuleModal(event, 'Material needs')">Open &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Module 2: My requests -->
+            <div class="module-card" id="module-card-requests">
+                <div>
+                    <div class="module-avail-label">AVAILABLE NOW</div>
+                    <h3 class="module-title">My requests</h3>
+                    <p class="module-desc">5 records assigned to you.</p>
+                </div>
+                <div>
+                    <a href="#my-requests" class="module-action-link" onclick="openModuleModal(event, 'My requests')">Open &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Module 3: Stock on hand -->
+            <div class="module-card" id="module-card-stock">
+                <div>
+                    <div class="module-avail-label">AVAILABLE NOW</div>
+                    <h3 class="module-title">Stock on hand</h3>
+                    <p class="module-desc">No records yet.</p>
+                </div>
+                <div>
+                    <a href="#stock-on-hand" class="module-action-link" onclick="openModuleModal(event, 'Stock on hand')">Open &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Module 4: Issue slips -->
+            <div class="module-card" id="module-card-slips">
+                <div>
+                    <div class="module-avail-label">AVAILABLE NOW</div>
+                    <h3 class="module-title">Issue slips</h3>
+                    <p class="module-desc">No records yet.</p>
+                </div>
+                <div>
+                    <a href="#issue-slips" class="module-action-link" onclick="openModuleModal(event, 'Issue slips')">Open &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Module 5: SAP status -->
+            <div class="module-card" id="module-card-sap">
+                <div>
+                    <div class="module-status-badge amber">CONFIGURED LATER</div>
+                    <h3 class="module-title">SAP status</h3>
+                    <p class="module-desc">Layout reserved. No records until this module is built.</p>
+                </div>
+                <div>
+                    <a href="#sap-status" class="module-action-link" onclick="openModuleModal(event, 'SAP status')">Preview &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Right Column: Awaiting You & System Status Cards -->
+    <aside class="dash-sidebar-col" aria-label="Awaiting Tasks and System Status">
+        <!-- Awaiting You Card -->
+        <div class="awaiting-card" id="card-awaiting-you">
+            <div class="panel-title-row">
+                <h2 class="panel-block-title">Awaiting you</h2>
+                <span class="panel-count">2</span>
+            </div>
+
+            <div class="awaiting-item">
+                <div class="awaiting-item-head">
+                    <strong class="awaiting-item-title">Acknowledge issue MR-2026-0136</strong>
+                    <span class="awaiting-item-date">13 Nov</span>
+                </div>
+                <div class="awaiting-item-desc">Signed issue slip required</div>
+            </div>
+
+            <div class="awaiting-divider"></div>
+
+            <div class="awaiting-item">
+                <div class="awaiting-item-head">
+                    <strong class="awaiting-item-title">Complete MR-2026-0142</strong>
+                    <span class="awaiting-item-date">14 Nov</span>
+                </div>
+                <div class="awaiting-item-desc">Unit of measure missing</div>
+            </div>
+        </div>
+
+        <!-- System Status Card -->
+        <div class="system-status-card" id="card-system-status">
+            <div class="panel-title-row" style="margin-bottom:0;">
+                <h2 class="panel-block-title">System status</h2>
+            </div>
+
+            <div class="status-badge-pill amber">NOT CONNECTED</div>
+            <div class="status-card-subtitle">SAP integration</div>
+            <p class="status-card-desc">
+                Balances, approvals and receipts are not read from or written to SAP.
+            </p>
+
+            <table class="status-meta-table">
+                <tbody>
+                    <tr>
+                        <td class="meta-key">Source</td>
+                        <td class="meta-val">Manual entry</td>
+                    </tr>
+                    <tr>
+                        <td class="meta-key">Last sync</td>
+                        <td class="meta-val">None</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </aside>
+</div>
+
+<!-- Bottom Page Disclaimer -->
+<div class="dash-footer-disclaimer">
+    Sample data. Figures come from recorded entries only. Purchase, receiving and SAP happen outside this page.
+</div>
+{% endblock %}

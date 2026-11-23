@@ -1,0 +1,94 @@
+{% extends "accounts/dashboard_base.html" %}
+
+{% block dashboard_content %}
+<div style="display:flex; justify-content:space-between; align-items:center; background:#ffffff; border:1px solid var(--line); border-radius:var(--r); padding:16px 22px; margin-bottom:20px; box-shadow:var(--shadow-sm); flex-wrap:wrap; gap:12px;">
+    <div>
+        <strong style="color:var(--ink); font-size:14px;">Procurement Site Lead Review Console</strong>
+        <p style="font-size:12px; color:var(--muted); margin-top:2px;">Review PO approval information and record external SAP review evidence.</p>
+    </div>
+    <div style="display:flex; gap:10px;">
+        <button class="button primary" type="button" onclick="alert('Access PO Approval Queue.')">
+            Review PO Approval Queue
+        </button>
+        <button class="button secondary" type="button" onclick="alert('Record SAP Review Evidence.')">
+            Record SAP Evidence
+        </button>
+    </div>
+</div>
+
+<section class="panel">
+    <div class="panel-head">
+        <div>
+            <h2>Authorized Operational Modules</h2>
+            <p>Direct responsibilities for the Procurement Site Lead role.</p>
+        </div>
+        <span class="tag amber">Site Lead Oversight</span>
+    </div>
+    <div class="panel-body">
+        <div class="role-grid">
+            <div class="role-card" id="module-1">
+                <div>
+                    <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+                        <span style="font-size:18px;">&#128065;</span>
+                        <span class="smallcap" style="font-size:10px;">PO Review</span>
+                    </div>
+                    <h3>Review Applicable PO Approval Information</h3>
+                    <p>Review completed canvass comparisons, supplier recommendations, and purchase order packages requiring site-level approval.</p>
+                </div>
+                <div class="role-card-footer">
+                    <span class="tag amber">Pending Endorsement</span>
+                    <button class="button text-btn" type="button">Review Details &rarr;</button>
+                </div>
+            </div>
+
+            <div class="role-card" id="module-2">
+                <div>
+                    <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+                        <span style="font-size:18px;">&#128279;</span>
+                        <span class="smallcap" style="font-size:10px;">SAP Verification</span>
+                    </div>
+                    <h3>Record External SAP Review Evidence</h3>
+                    <p>Record SAP transaction review outcomes, endorsement timestamps, and external review reference IDs for corporate auditing.</p>
+                </div>
+                <div class="role-card-footer">
+                    <span class="tag green">Authorized</span>
+                    <button class="button text-btn" type="button">Record Evidence &rarr;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-foot">
+        Oversight of site-wide indirect material procurement authorizations.
+    </div>
+</section>
+
+<section class="panel">
+    <div class="panel-head">
+        <div>
+            <h2>Confirmed Role Responsibilities</h2>
+            <p>Client-approved operational boundaries for Procurement Site Lead.</p>
+        </div>
+    </div>
+    <div class="panel-body">
+        <ul style="list-style:none; padding:0; display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:12px;">
+            <li style="display:flex; gap:10px; align-items:flex-start; padding:10px 12px; background:#fbfcfd; border:1px solid var(--line); border-radius:8px;">
+                <span style="color:var(--teal); font-weight:bold;">&#10003;</span>
+                <div>
+                    <strong style="font-size:13px; color:var(--ink);">Review PO Approval Information</strong>
+                    <p style="font-size:12px; color:var(--muted); margin-top:2px;">Audit supplier selection dossiers and commercial terms.</p>
+                </div>
+            </li>
+            <li style="display:flex; gap:10px; align-items:flex-start; padding:10px 12px; background:#fbfcfd; border:1px solid var(--line); border-radius:8px;">
+                <span style="color:var(--teal); font-weight:bold;">&#10003;</span>
+                <div>
+                    <strong style="font-size:13px; color:var(--ink);">Record External SAP Review Evidence</strong>
+                    <p style="font-size:12px; color:var(--muted); margin-top:2px;">Document official SAP review verifications and sign-offs.</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="panel-foot">
+        Compliant with company threshold matrices; no unconfirmed business logic introduced.
+    </div>
+</section>
+{% endblock %}

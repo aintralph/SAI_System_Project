@@ -1,0 +1,116 @@
+{% extends "accounts/dashboard_base.html" %}
+
+{% block dashboard_content %}
+<div style="display:flex; justify-content:space-between; align-items:center; background:#ffffff; border:1px solid var(--line); border-radius:var(--r); padding:16px 22px; margin-bottom:20px; box-shadow:var(--shadow-sm); flex-wrap:wrap; gap:12px;">
+    <div>
+        <strong style="color:var(--ink); font-size:14px;">Document Control Team (DCT) Workbench</strong>
+        <p style="font-size:12px; color:var(--muted); margin-top:2px;">Invoice document completeness, transmittal handoffs to Finance, and SAP upload tracking.</p>
+    </div>
+    <div style="display:flex; gap:10px;">
+        <button class="button primary" type="button" onclick="alert('Record Invoice Handoff.')">
+            + Record Invoice Handoff
+        </button>
+        <button class="button secondary" type="button" onclick="alert('Log SAP Upload Evidence.')">
+            Log SAP Upload
+        </button>
+    </div>
+</div>
+
+<section class="panel">
+    <div class="panel-head">
+        <div>
+            <h2>Authorized Operational Modules</h2>
+            <p>Direct responsibilities for the DCT role.</p>
+        </div>
+        <span class="tag blue">Document Control</span>
+    </div>
+    <div class="panel-body">
+        <div class="role-grid">
+            <div class="role-card" id="module-1">
+                <div>
+                    <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+                        <span style="font-size:18px;">&#128196;</span>
+                        <span class="smallcap" style="font-size:10px;">Verification</span>
+                    </div>
+                    <h3>Handle Invoice Documentation</h3>
+                    <p>Receive supplier invoices, verify attachments (PO, delivery receipts, inspection notes), and audit documentation completeness.</p>
+                </div>
+                <div class="role-card-footer">
+                    <span class="tag green">Authorized</span>
+                    <button class="button text-btn" type="button">Verify Invoices &rarr;</button>
+                </div>
+            </div>
+
+            <div class="role-card" id="module-2">
+                <div>
+                    <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+                        <span style="font-size:18px;">&#128257;</span>
+                        <span class="smallcap" style="font-size:10px;">Handoff Transmittal</span>
+                    </div>
+                    <h3>Record Invoice Handoffs</h3>
+                    <p>Formally log physical and digital handoffs of verified invoice packets to the Accounting &amp; Finance department.</p>
+                </div>
+                <div class="role-card-footer">
+                    <span class="tag green">Authorized</span>
+                    <button class="button text-btn" type="button">Log Handoff &rarr;</button>
+                </div>
+            </div>
+
+            <div class="role-card" id="module-3">
+                <div>
+                    <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+                        <span style="font-size:18px;">&#128279;</span>
+                        <span class="smallcap" style="font-size:10px;">SAP Upload</span>
+                    </div>
+                    <h3>Record SAP Upload Evidence</h3>
+                    <p>Record SAP document entry numbers, scan upload confirmations, and digital archiving references.</p>
+                </div>
+                <div class="role-card-footer">
+                    <span class="tag green">Authorized</span>
+                    <button class="button text-btn" type="button">Record Evidence &rarr;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-foot">
+        Safeguards document custody between vendors, procurement, and finance.
+    </div>
+</section>
+
+<section class="panel">
+    <div class="panel-head">
+        <div>
+            <h2>Confirmed Role Responsibilities</h2>
+            <p>Client-approved operational boundaries for DCT.</p>
+        </div>
+    </div>
+    <div class="panel-body">
+        <ul style="list-style:none; padding:0; display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:12px;">
+            <li style="display:flex; gap:10px; align-items:flex-start; padding:10px 12px; background:#fbfcfd; border:1px solid var(--line); border-radius:8px;">
+                <span style="color:var(--teal); font-weight:bold;">&#10003;</span>
+                <div>
+                    <strong style="font-size:13px; color:var(--ink);">Handle Invoice Documentation</strong>
+                    <p style="font-size:12px; color:var(--muted); margin-top:2px;">Validate supplier billing completeness and supporting slips.</p>
+                </div>
+            </li>
+            <li style="display:flex; gap:10px; align-items:flex-start; padding:10px 12px; background:#fbfcfd; border:1px solid var(--line); border-radius:8px;">
+                <span style="color:var(--teal); font-weight:bold;">&#10003;</span>
+                <div>
+                    <strong style="font-size:13px; color:var(--ink);">Record Invoice Handoffs</strong>
+                    <p style="font-size:12px; color:var(--muted); margin-top:2px;">Document chain of custody when routing to Finance.</p>
+                </div>
+            </li>
+            <li style="display:flex; gap:10px; align-items:flex-start; padding:10px 12px; background:#fbfcfd; border:1px solid var(--line); border-radius:8px;">
+                <span style="color:var(--teal); font-weight:bold;">&#10003;</span>
+                <div>
+                    <strong style="font-size:13px; color:var(--ink);">Record Applicable SAP Upload Evidence</strong>
+                    <p style="font-size:12px; color:var(--muted); margin-top:2px;">Link ERP upload transactions and document references.</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="panel-foot">
+        Document transmittals ensure clear audit tracking prior to disbursement.
+    </div>
+</section>
+{% endblock %}

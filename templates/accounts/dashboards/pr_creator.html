@@ -1,0 +1,138 @@
+{% extends "accounts/dashboard_base.html" %}
+
+{% block dashboard_content %}
+<div style="display:flex; justify-content:space-between; align-items:center; background:#ffffff; border:1px solid var(--line); border-radius:var(--r); padding:16px 22px; margin-bottom:20px; box-shadow:var(--shadow-sm); flex-wrap:wrap; gap:12px;">
+    <div>
+        <strong style="color:var(--ink); font-size:14px;">Purchase Requisition Workbench</strong>
+        <p style="font-size:12px; color:var(--muted); margin-top:2px;">Prepare indirect material PRs and sync SAP PR tracking codes.</p>
+    </div>
+    <div style="display:flex; gap:10px;">
+        <button class="button primary" type="button" onclick="alert('Open Assigned Requests Queue.')">
+            Review Assigned Requests
+        </button>
+        <button class="button secondary" type="button" onclick="alert('Log SAP PR Reference.')">
+            + Log SAP PR Reference
+        </button>
+    </div>
+</div>
+
+<section class="panel">
+    <div class="panel-head">
+        <div>
+            <h2>Authorized Operational Modules</h2>
+            <p>Direct responsibilities for the PR Creator role.</p>
+        </div>
+        <span class="tag green">PR Preparation Scope</span>
+    </div>
+    <div class="panel-body">
+        <div class="role-grid">
+            <div class="role-card" id="module-1">
+                <div>
+                    <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+                        <span style="font-size:18px;">&#128229;</span>
+                        <span class="smallcap" style="font-size:10px;">Intake Queue</span>
+                    </div>
+                    <h3>View Assigned Material Requests</h3>
+                    <p>Review material requests endorsed by maintenance leads for consolidation into formal purchase requisitions.</p>
+                </div>
+                <div class="role-card-footer">
+                    <span class="tag green">Authorized</span>
+                    <button class="button text-btn" type="button">View Requests &rarr;</button>
+                </div>
+            </div>
+
+            <div class="role-card" id="module-2">
+                <div>
+                    <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+                        <span style="font-size:18px;">&#128221;</span>
+                        <span class="smallcap" style="font-size:10px;">Requisition Drafting</span>
+                    </div>
+                    <h3>Prepare Purchase Requisitions</h3>
+                    <p>Assemble item specifications, estimated costs, delivery schedules, and required accounting classifications.</p>
+                </div>
+                <div class="role-card-footer">
+                    <span class="tag green">Authorized</span>
+                    <button class="button text-btn" type="button">Prepare PR &rarr;</button>
+                </div>
+            </div>
+
+            <div class="role-card" id="module-3">
+                <div>
+                    <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+                        <span style="font-size:18px;">&#128279;</span>
+                        <span class="smallcap" style="font-size:10px;">SAP Synchronization</span>
+                    </div>
+                    <h3>Record SAP PR References</h3>
+                    <p>Record and link applicable SAP Purchase Requisition reference numbers for external audit tracking.</p>
+                </div>
+                <div class="role-card-footer">
+                    <span class="tag green">Authorized</span>
+                    <button class="button text-btn" type="button">Record SAP Code &rarr;</button>
+                </div>
+            </div>
+
+            <div class="role-card" id="module-4">
+                <div>
+                    <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+                        <span style="font-size:18px;">&#128337;</span>
+                        <span class="smallcap" style="font-size:10px;">Revision Audit</span>
+                    </div>
+                    <h3>Track PR Revisions &amp; History</h3>
+                    <p>Maintain historical logs of all PR edits, line adjustments, review comments, and approval states.</p>
+                </div>
+                <div class="role-card-footer">
+                    <span class="tag green">Authorized</span>
+                    <button class="button text-btn" type="button">Audit History &rarr;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-foot">
+        Authorized for indirect material purchase requisitions only.
+    </div>
+</section>
+
+<section class="panel">
+    <div class="panel-head">
+        <div>
+            <h2>Confirmed Role Responsibilities</h2>
+            <p>Client-approved operational boundaries for PR Creator.</p>
+        </div>
+    </div>
+    <div class="panel-body">
+        <ul style="list-style:none; padding:0; display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:12px;">
+            <li style="display:flex; gap:10px; align-items:flex-start; padding:10px 12px; background:#fbfcfd; border:1px solid var(--line); border-radius:8px;">
+                <span style="color:var(--teal); font-weight:bold;">&#10003;</span>
+                <div>
+                    <strong style="font-size:13px; color:var(--ink);">View Assigned Material Requests</strong>
+                    <p style="font-size:12px; color:var(--muted); margin-top:2px;">Inspect assigned requests and technical notes.</p>
+                </div>
+            </li>
+            <li style="display:flex; gap:10px; align-items:flex-start; padding:10px 12px; background:#fbfcfd; border:1px solid var(--line); border-radius:8px;">
+                <span style="color:var(--teal); font-weight:bold;">&#10003;</span>
+                <div>
+                    <strong style="font-size:13px; color:var(--ink);">Prepare Purchase Requisitions</strong>
+                    <p style="font-size:12px; color:var(--muted); margin-top:2px;">Generate structured PR packages per policy.</p>
+                </div>
+            </li>
+            <li style="display:flex; gap:10px; align-items:flex-start; padding:10px 12px; background:#fbfcfd; border:1px solid var(--line); border-radius:8px;">
+                <span style="color:var(--teal); font-weight:bold;">&#10003;</span>
+                <div>
+                    <strong style="font-size:13px; color:var(--ink);">Record Applicable SAP PR References</strong>
+                    <p style="font-size:12px; color:var(--muted); margin-top:2px;">Document official SAP ERP reference codes.</p>
+                </div>
+            </li>
+            <li style="display:flex; gap:10px; align-items:flex-start; padding:10px 12px; background:#fbfcfd; border:1px solid var(--line); border-radius:8px;">
+                <span style="color:var(--teal); font-weight:bold;">&#10003;</span>
+                <div>
+                    <strong style="font-size:13px; color:var(--ink);">Track PR Revisions &amp; History</strong>
+                    <p style="font-size:12px; color:var(--muted); margin-top:2px;">Maintain chronological modification logs.</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="panel-foot">
+        All PR preparations and SAP links are logged for audit compliance.
+    </div>
+</section>
+{% endblock %}

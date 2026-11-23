@@ -12,5 +12,6 @@ urlpatterns = [
     path('home/', views.home_view, name='home'),
     path('password-change/', views.password_change_view, name='password_change'),
     path('access-denied/', views.access_denied_view, name='access_denied'),
+    path('dashboard/<slug:role_slug>/', views.role_dashboard_view, name='dashboard'),
     path('workspace/<slug:role_slug>/', views.role_workspace_view, name='workspace'),
 ]

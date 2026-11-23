@@ -1,0 +1,167 @@
+{% extends "accounts/dashboard_base.html" %}
+
+{% block dashboard_content %}
+<div style="display:flex; justify-content:space-between; align-items:center; background:#ffffff; border:1px solid var(--line); border-radius:var(--r); padding:16px 22px; margin-bottom:20px; box-shadow:var(--shadow-sm); flex-wrap:wrap; gap:12px;">
+    <div>
+        <strong style="color:var(--ink); font-size:14px;">Procurement &amp; Sourcing Desk</strong>
+        <p style="font-size:12px; color:var(--muted); margin-top:2px;">Supplier canvassing, quotation comparison, award recommendations, and PO follow-up.</p>
+    </div>
+    <div style="display:flex; gap:10px;">
+        <button class="button primary" type="button" onclick="alert('Open Supplier Canvass Workspace.')">
+            Compare Quotations
+        </button>
+        <button class="button secondary" type="button" onclick="alert('Log New Supplier Quotation.')">
+            + Record Quotation
+        </button>
+    </div>
+</div>
+
+<section class="panel">
+    <div class="panel-head">
+        <div>
+            <h2>Authorized Operational Modules</h2>
+            <p>Direct responsibilities for the Procurement Specialist role.</p>
+        </div>
+        <span class="tag green">Sourcing &amp; Canvassing</span>
+    </div>
+    <div class="panel-body">
+        <div class="role-grid">
+            <div class="role-card" id="module-1">
+                <div>
+                    <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+                        <span style="font-size:18px;">&#127970;</span>
+                        <span class="smallcap" style="font-size:10px;">Sourcing</span>
+                    </div>
+                    <h3>Handle Supplier Sourcing</h3>
+                    <p>Identify qualified suppliers, solicit formal competitive quotations, and clarify technical specifications for indirect materials.</p>
+                </div>
+                <div class="role-card-footer">
+                    <span class="tag green">Authorized</span>
+                    <button class="button text-btn" type="button">Source Vendors &rarr;</button>
+                </div>
+            </div>
+
+            <div class="role-card" id="module-2">
+                <div>
+                    <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+                        <span style="font-size:18px;">&#128181;</span>
+                        <span class="smallcap" style="font-size:10px;">Quotation Intake</span>
+                    </div>
+                    <h3>Record Supplier Quotations</h3>
+                    <p>Log itemized bids, unit prices, validity dates, payment terms, and delivery lead times from prospective vendors.</p>
+                </div>
+                <div class="role-card-footer">
+                    <span class="tag green">Authorized</span>
+                    <button class="button text-btn" type="button">Record Quote &rarr;</button>
+                </div>
+            </div>
+
+            <div class="role-card" id="module-3">
+                <div>
+                    <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+                        <span style="font-size:18px;">&#9878;</span>
+                        <span class="smallcap" style="font-size:10px;">Canvass Comparison</span>
+                    </div>
+                    <h3>Compare Quotations</h3>
+                    <p>Conduct structured side-by-side comparative analysis of supplier proposals to evaluate commercial value and lead time.</p>
+                </div>
+                <div class="role-card-footer">
+                    <span class="tag green">Authorized</span>
+                    <button class="button text-btn" type="button">Compare Quotes &rarr;</button>
+                </div>
+            </div>
+
+            <div class="role-card" id="module-4">
+                <div>
+                    <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+                        <span style="font-size:18px;">&#128221;</span>
+                        <span class="smallcap" style="font-size:10px;">Recommendation</span>
+                    </div>
+                    <h3>Prepare Supplier Recommendations</h3>
+                    <p>Draft objective supplier award justifications highlighting technical compliance, best pricing, and operational suitability.</p>
+                </div>
+                <div class="role-card-footer">
+                    <span class="tag green">Authorized</span>
+                    <button class="button text-btn" type="button">Draft Recommendation &rarr;</button>
+                </div>
+            </div>
+
+            <div class="role-card" id="module-5">
+                <div>
+                    <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+                        <span style="font-size:18px;">&#128230;</span>
+                        <span class="smallcap" style="font-size:10px;">PO &amp; Delivery Tracking</span>
+                    </div>
+                    <h3>Record PO References &amp; Follow-up</h3>
+                    <p>Record SAP Purchase Order references and actively follow up with selected suppliers regarding order confirmation and delivery.</p>
+                </div>
+                <div class="role-card-footer">
+                    <span class="tag green">Authorized</span>
+                    <button class="button text-btn" type="button">Track PO &rarr;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-foot">
+        Compliant with competitive bidding and quotation policy.
+    </div>
+</section>
+
+<section class="panel">
+    <div class="panel-head">
+        <div>
+            <h2>Confirmed Role Responsibilities</h2>
+            <p>Client-approved operational boundaries for Procurement Specialist.</p>
+        </div>
+    </div>
+    <div class="panel-body">
+        <ul style="list-style:none; padding:0; display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:12px;">
+            <li style="display:flex; gap:10px; align-items:flex-start; padding:10px 12px; background:#fbfcfd; border:1px solid var(--line); border-radius:8px;">
+                <span style="color:var(--teal); font-weight:bold;">&#10003;</span>
+                <div>
+                    <strong style="font-size:13px; color:var(--ink);">Handle Supplier Sourcing</strong>
+                    <p style="font-size:12px; color:var(--muted); margin-top:2px;">Engage qualified vendors for indirect materials.</p>
+                </div>
+            </li>
+            <li style="display:flex; gap:10px; align-items:flex-start; padding:10px 12px; background:#fbfcfd; border:1px solid var(--line); border-radius:8px;">
+                <span style="color:var(--teal); font-weight:bold;">&#10003;</span>
+                <div>
+                    <strong style="font-size:13px; color:var(--ink);">Record Supplier Quotations</strong>
+                    <p style="font-size:12px; color:var(--muted); margin-top:2px;">Document pricing, lead times, and terms.</p>
+                </div>
+            </li>
+            <li style="display:flex; gap:10px; align-items:flex-start; padding:10px 12px; background:#fbfcfd; border:1px solid var(--line); border-radius:8px;">
+                <span style="color:var(--teal); font-weight:bold;">&#10003;</span>
+                <div>
+                    <strong style="font-size:13px; color:var(--ink);">Compare Quotations</strong>
+                    <p style="font-size:12px; color:var(--muted); margin-top:2px;">Perform side-by-side commercial comparison.</p>
+                </div>
+            </li>
+            <li style="display:flex; gap:10px; align-items:flex-start; padding:10px 12px; background:#fbfcfd; border:1px solid var(--line); border-radius:8px;">
+                <span style="color:var(--teal); font-weight:bold;">&#10003;</span>
+                <div>
+                    <strong style="font-size:13px; color:var(--ink);">Prepare Supplier Recommendations</strong>
+                    <p style="font-size:12px; color:var(--muted); margin-top:2px;">Formulate award justifications for lead review.</p>
+                </div>
+            </li>
+            <li style="display:flex; gap:10px; align-items:flex-start; padding:10px 12px; background:#fbfcfd; border:1px solid var(--line); border-radius:8px;">
+                <span style="color:var(--teal); font-weight:bold;">&#10003;</span>
+                <div>
+                    <strong style="font-size:13px; color:var(--ink);">Record Applicable PO References</strong>
+                    <p style="font-size:12px; color:var(--muted); margin-top:2px;">Link verified SAP purchase order numbers.</p>
+                </div>
+            </li>
+            <li style="display:flex; gap:10px; align-items:flex-start; padding:10px 12px; background:#fbfcfd; border:1px solid var(--line); border-radius:8px;">
+                <span style="color:var(--teal); font-weight:bold;">&#10003;</span>
+                <div>
+                    <strong style="font-size:13px; color:var(--ink);">Follow Up with Suppliers</strong>
+                    <p style="font-size:12px; color:var(--muted); margin-top:2px;">Track delivery commitments and status updates.</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="panel-foot">
+        External supplier portal integration is out of scope; manages internal procurement workflow.
+    </div>
+</section>
+{% endblock %}

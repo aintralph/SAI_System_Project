@@ -1,61 +1,34 @@
 """
-Management command to set up provisional system roles (groups).
+Management command to set up the 10 internal system roles and permissions.
 
 This command is idempotent — safe to run multiple times.
 It will NOT remove existing groups or users.
-It will NOT grant permissions to groups (permissions are provisional
-and await client confirmation).
+It creates the groups and assigns the confirmed operational permissions.
 
 Usage:
     python manage.py setup_roles
 """
 from django.core.management.base import BaseCommand
-from django.contrib.auth.models import Group
-
-
-PROVISIONAL_ROLES = [
-    ('system-administrator', 'System Administrator'),
-    ('enduser-maintenance-lead', 'End-user / Maintenance Lead'),
-    ('pr-creator', 'PR Creator'),
-    ('odm', 'ODM'),
-    ('procurement-specialist', 'Procurement Specialist'),
-    ('procurement-site-lead', 'Procurement Site Lead'),
-    ('laguna-manager', 'Laguna Manager'),
-    ('sic-stockroom-gr-creator', 'SIC / Stockroom / GR Creator'),
-    ('dct', 'DCT'),
-    ('accounting-finance', 'Accounting & Finance'),
-]
+from accounts.roles import setup_system_roles, ROLE_DEFINITIONS
 
 
 class Command(BaseCommand):
-    help = 'Create provisional system role groups (idempotent).'
+    help = 'Create the ten internal system roles and assign confirmed permissions (idempotent).'
 
     def handle(self, *args, **options):
-        created_count = 0
-        existing_count = 0
+        self.stdout.write(self.style.NOTICE('Setting up Nissin internal system roles...'))
 
-        for slug, display_name in PROVISIONAL_ROLES:
-            group, created = Group.objects.get_or_create(name=slug)
-            if created:
-                created_count += 1
-                self.stdout.write(self.style.SUCCESS(
-                    f'  Created group: {slug} ({display_name})'
-                ))
-            else:
-                existing_count += 1
-                self.stdout.write(
-                    f'  Already exists: {slug} ({display_name})'
-                )
+        result = setup_system_roles()
+
+        for slug, info in ROLE_DEFINITIONS.items():
+            perm_count = len(info.get('permissions', []))
+            self.stdout.write(self.style.SUCCESS(
+                f"  - [{slug}] {info['display']}: {perm_count} operational permissions assigned"
+            ))
 
         self.stdout.write('')
         self.stdout.write(self.style.SUCCESS(
-            f'Done. Created: {created_count}, Already existed: {existing_count}'
-        ))
-        self.stdout.write(self.style.WARNING(
-            'NOTE: These are provisional role definitions. '
-            'Final permissions await client confirmation.'
-        ))
-        self.stdout.write(self.style.WARNING(
-            'NOTE: No permissions have been assigned to these groups. '
-            'Use Django Admin to configure permissions when confirmed.'
+            f"Role setup complete. Total roles: {result['total_roles']} "
+            f"(Created: {result['created_groups']}, Existing: {result['existing_groups']}, "
+            f"Permissions registered: {result['created_permissions']})"
         ))

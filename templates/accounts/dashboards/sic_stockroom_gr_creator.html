@@ -1,0 +1,160 @@
+{% extends "accounts/dashboard_base.html" %}
+
+{% block dashboard_content %}
+<div style="display:flex; justify-content:space-between; align-items:center; background:#ffffff; border:1px solid var(--line); border-radius:var(--r); padding:16px 22px; margin-bottom:20px; box-shadow:var(--shadow-sm); flex-wrap:wrap; gap:12px;">
+    <div>
+        <strong style="color:var(--ink); font-size:14px;">Stockroom &amp; Goods Receipt Desk</strong>
+        <p style="font-size:12px; color:var(--muted); margin-top:2px;">Receiving inspections, SAP GR references, inventory balances, issuance, and MIS logs.</p>
+    </div>
+    <div style="display:flex; gap:10px;">
+        <button class="button primary" type="button" onclick="alert('Log New Inbound Receiving Record.')">
+            + Record Delivery
+        </button>
+        <button class="button secondary" type="button" onclick="alert('Record Stock Issuance.')">
+            + Issue Stock (MIS)
+        </button>
+    </div>
+</div>
+
+<section class="panel">
+    <div class="panel-head">
+        <div>
+            <h2>Authorized Operational Modules</h2>
+            <p>Direct responsibilities for the SIC / Stockroom / GR Creator role.</p>
+        </div>
+        <span class="tag blue">Receiving &amp; Inventory</span>
+    </div>
+    <div class="panel-body">
+        <div class="role-grid">
+            <div class="role-card" id="module-1">
+                <div>
+                    <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+                        <span style="font-size:18px;">&#128230;</span>
+                        <span class="smallcap" style="font-size:10px;">Receiving</span>
+                    </div>
+                    <h3>Handle Receiving Records</h3>
+                    <p>Inspect physical shipments at the loading dock, compare delivery receipts with PO line items, and log condition.</p>
+                </div>
+                <div class="role-card-footer">
+                    <span class="tag green">Authorized</span>
+                    <button class="button text-btn" type="button">Log Receiving &rarr;</button>
+                </div>
+            </div>
+
+            <div class="role-card" id="module-2">
+                <div>
+                    <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+                        <span style="font-size:18px;">&#128279;</span>
+                        <span class="smallcap" style="font-size:10px;">SAP GR Logging</span>
+                    </div>
+                    <h3>Record Applicable GR References</h3>
+                    <p>Record verified SAP Goods Receipt (GR) numbers generated upon delivery acceptance into corporate ERP.</p>
+                </div>
+                <div class="role-card-footer">
+                    <span class="tag green">Authorized</span>
+                    <button class="button text-btn" type="button">Record GR &rarr;</button>
+                </div>
+            </div>
+
+            <div class="role-card" id="module-3">
+                <div>
+                    <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+                        <span style="font-size:18px;">&#128190;</span>
+                        <span class="smallcap" style="font-size:10px;">Stockroom</span>
+                    </div>
+                    <h3>Manage Authorized Inventory</h3>
+                    <p>Track indirect materials inventory levels, manage storage bin allocations, and perform authorized stock checks.</p>
+                </div>
+                <div class="role-card-footer">
+                    <span class="tag green">Authorized</span>
+                    <button class="button text-btn" type="button">Manage Bins &rarr;</button>
+                </div>
+            </div>
+
+            <div class="role-card" id="module-4">
+                <div>
+                    <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+                        <span style="font-size:18px;">&#128228;</span>
+                        <span class="smallcap" style="font-size:10px;">Issuance</span>
+                    </div>
+                    <h3>Record Stock Issuance</h3>
+                    <p>Release inventory items to authorized maintenance leads and record itemized issuance transactions.</p>
+                </div>
+                <div class="role-card-footer">
+                    <span class="tag green">Authorized</span>
+                    <button class="button text-btn" type="button">Issue Stock &rarr;</button>
+                </div>
+            </div>
+
+            <div class="role-card" id="module-5">
+                <div>
+                    <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+                        <span style="font-size:18px;">&#128196;</span>
+                        <span class="smallcap" style="font-size:10px;">Documentation</span>
+                    </div>
+                    <h3>Maintain Applicable MIS Docs</h3>
+                    <p>Maintain Material Issuance Slips (MIS), bin cards, and delivery receipt physical/digital archives.</p>
+                </div>
+                <div class="role-card-footer">
+                    <span class="tag green">Authorized</span>
+                    <button class="button text-btn" type="button">Maintain MIS &rarr;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-foot">
+        Indirect materials stockroom only. Raw production materials managed separately.
+    </div>
+</section>
+
+<section class="panel">
+    <div class="panel-head">
+        <div>
+            <h2>Confirmed Role Responsibilities</h2>
+            <p>Client-approved operational boundaries for SIC / Stockroom / GR Creator.</p>
+        </div>
+    </div>
+    <div class="panel-body">
+        <ul style="list-style:none; padding:0; display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:12px;">
+            <li style="display:flex; gap:10px; align-items:flex-start; padding:10px 12px; background:#fbfcfd; border:1px solid var(--line); border-radius:8px;">
+                <span style="color:var(--teal); font-weight:bold;">&#10003;</span>
+                <div>
+                    <strong style="font-size:13px; color:var(--ink);">Handle Receiving Records</strong>
+                    <p style="font-size:12px; color:var(--muted); margin-top:2px;">Document inbound delivery inspection and counts.</p>
+                </div>
+            </li>
+            <li style="display:flex; gap:10px; align-items:flex-start; padding:10px 12px; background:#fbfcfd; border:1px solid var(--line); border-radius:8px;">
+                <span style="color:var(--teal); font-weight:bold;">&#10003;</span>
+                <div>
+                    <strong style="font-size:13px; color:var(--ink);">Record Applicable GR References</strong>
+                    <p style="font-size:12px; color:var(--muted); margin-top:2px;">Maintain SAP Goods Receipt linkage.</p>
+                </div>
+            </li>
+            <li style="display:flex; gap:10px; align-items:flex-start; padding:10px 12px; background:#fbfcfd; border:1px solid var(--line); border-radius:8px;">
+                <span style="color:var(--teal); font-weight:bold;">&#10003;</span>
+                <div>
+                    <strong style="font-size:13px; color:var(--ink);">Manage Authorized Inventory Activities</strong>
+                    <p style="font-size:12px; color:var(--muted); margin-top:2px;">Track indirect materials stock and bin locations.</p>
+                </div>
+            </li>
+            <li style="display:flex; gap:10px; align-items:flex-start; padding:10px 12px; background:#fbfcfd; border:1px solid var(--line); border-radius:8px;">
+                <span style="color:var(--teal); font-weight:bold;">&#10003;</span>
+                <div>
+                    <strong style="font-size:13px; color:var(--ink);">Record Stock Issuance</strong>
+                    <p style="font-size:12px; color:var(--muted); margin-top:2px;">Log physical releases to requisitioning personnel.</p>
+                </div>
+            </li>
+            <li style="display:flex; gap:10px; align-items:flex-start; padding:10px 12px; background:#fbfcfd; border:1px solid var(--line); border-radius:8px;">
+                <span style="color:var(--teal); font-weight:bold;">&#10003;</span>
+                <div>
+                    <strong style="font-size:13px; color:var(--ink);">Maintain Applicable MIS Documentation</strong>
+                    <p style="font-size:12px; color:var(--muted); margin-top:2px;">Audit-ready Material Issuance Slip archives.</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="panel-foot">
+        Accurate stock counts and GR references are essential for 3-way matching in Finance.
+    </div>
+</section>
+{% endblock %}

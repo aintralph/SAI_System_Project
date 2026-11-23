@@ -1,0 +1,116 @@
+{% extends "accounts/dashboard_base.html" %}
+
+{% block dashboard_content %}
+<div style="display:flex; justify-content:space-between; align-items:center; background:#ffffff; border:1px solid var(--line); border-radius:var(--r); padding:16px 22px; margin-bottom:20px; box-shadow:var(--shadow-sm); flex-wrap:wrap; gap:12px;">
+    <div>
+        <strong style="color:var(--ink); font-size:14px;">Accounting &amp; Finance Disbursement Console</strong>
+        <p style="font-size:12px; color:var(--muted); margin-top:2px;">Financial review (3-way match), authorized finance status, and payment references.</p>
+    </div>
+    <div style="display:flex; gap:10px;">
+        <button class="button primary" type="button" onclick="alert('Open 3-Way Match Review Queue.')">
+            Review Financial Docs
+        </button>
+        <button class="button secondary" type="button" onclick="alert('Log Payment Reference.')">
+            + Record Payment Reference
+        </button>
+    </div>
+</div>
+
+<section class="panel">
+    <div class="panel-head">
+        <div>
+            <h2>Authorized Operational Modules</h2>
+            <p>Direct responsibilities for the Accounting &amp; Finance role.</p>
+        </div>
+        <span class="tag green">Finance &amp; Disbursement</span>
+    </div>
+    <div class="panel-body">
+        <div class="role-grid">
+            <div class="role-card" id="module-1">
+                <div>
+                    <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+                        <span style="font-size:18px;">&#128181;</span>
+                        <span class="smallcap" style="font-size:10px;">Audit Match</span>
+                    </div>
+                    <h3>Review Financial Documentation</h3>
+                    <p>Conduct rigorous 3-way matching of Purchase Order, Goods Receipt (GR), and Vendor Invoice to ensure pricing and quantity parity.</p>
+                </div>
+                <div class="role-card-footer">
+                    <span class="tag green">Authorized</span>
+                    <button class="button text-btn" type="button">Audit Match &rarr;</button>
+                </div>
+            </div>
+
+            <div class="role-card" id="module-2">
+                <div>
+                    <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+                        <span style="font-size:18px;">&#9989;</span>
+                        <span class="smallcap" style="font-size:10px;">Status Governance</span>
+                    </div>
+                    <h3>Record Authorized Finance Status</h3>
+                    <p>Record authorized financial processing states (Matched, Approved for Payment, Payment Scheduled, On Hold) with remarks.</p>
+                </div>
+                <div class="role-card-footer">
+                    <span class="tag green">Authorized</span>
+                    <button class="button text-btn" type="button">Update Status &rarr;</button>
+                </div>
+            </div>
+
+            <div class="role-card" id="module-3">
+                <div>
+                    <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+                        <span style="font-size:18px;">&#128279;</span>
+                        <span class="smallcap" style="font-size:10px;">Payment Settlement</span>
+                    </div>
+                    <h3>Maintain Payment-Related References</h3>
+                    <p>Maintain check numbers, electronic funds transfer (EFT) batch codes, voucher references, and settlement dates.</p>
+                </div>
+                <div class="role-card-footer">
+                    <span class="tag green">Authorized</span>
+                    <button class="button text-btn" type="button">Log References &rarr;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-foot">
+        Authorized financial verification for indirect materials procurement.
+    </div>
+</section>
+
+<section class="panel">
+    <div class="panel-head">
+        <div>
+            <h2>Confirmed Role Responsibilities</h2>
+            <p>Client-approved operational boundaries for Accounting &amp; Finance.</p>
+        </div>
+    </div>
+    <div class="panel-body">
+        <ul style="list-style:none; padding:0; display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:12px;">
+            <li style="display:flex; gap:10px; align-items:flex-start; padding:10px 12px; background:#fbfcfd; border:1px solid var(--line); border-radius:8px;">
+                <span style="color:var(--teal); font-weight:bold;">&#10003;</span>
+                <div>
+                    <strong style="font-size:13px; color:var(--ink);">Review Financial Documentation</strong>
+                    <p style="font-size:12px; color:var(--muted); margin-top:2px;">Validate 3-way match among PO, GR, and Invoice.</p>
+                </div>
+            </li>
+            <li style="display:flex; gap:10px; align-items:flex-start; padding:10px 12px; background:#fbfcfd; border:1px solid var(--line); border-radius:8px;">
+                <span style="color:var(--teal); font-weight:bold;">&#10003;</span>
+                <div>
+                    <strong style="font-size:13px; color:var(--ink);">Record Authorized Finance Status</strong>
+                    <p style="font-size:12px; color:var(--muted); margin-top:2px;">Maintain status approvals and payment authorization milestones.</p>
+                </div>
+            </li>
+            <li style="display:flex; gap:10px; align-items:flex-start; padding:10px 12px; background:#fbfcfd; border:1px solid var(--line); border-radius:8px;">
+                <span style="color:var(--teal); font-weight:bold;">&#10003;</span>
+                <div>
+                    <strong style="font-size:13px; color:var(--ink);">Maintain Payment-Related References</strong>
+                    <p style="font-size:12px; color:var(--muted); margin-top:2px;">Record check / EFT voucher codes and clearance records.</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="panel-foot">
+        Compliant with company financial controls and payment release guidelines.
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,94 @@
+{% extends "accounts/dashboard_base.html" %}
+
+{% block dashboard_content %}
+<div style="display:flex; justify-content:space-between; align-items:center; background:#ffffff; border:1px solid var(--line); border-radius:var(--r); padding:16px 22px; margin-bottom:20px; box-shadow:var(--shadow-sm); flex-wrap:wrap; gap:12px;">
+    <div>
+        <strong style="color:var(--ink); font-size:14px;">Laguna Plant Executive Approvals</strong>
+        <p style="font-size:12px; color:var(--muted); margin-top:2px;">Review management-level PO approvals and record external SAP executive evidence.</p>
+    </div>
+    <div style="display:flex; gap:10px;">
+        <button class="button primary" type="button" onclick="alert('Open Management PO Approval Queue.')">
+            Management PO Queue
+        </button>
+        <button class="button secondary" type="button" onclick="alert('Record External SAP Evidence.')">
+            Record SAP Evidence
+        </button>
+    </div>
+</div>
+
+<section class="panel">
+    <div class="panel-head">
+        <div>
+            <h2>Authorized Operational Modules</h2>
+            <p>Direct responsibilities for the Laguna Manager role.</p>
+        </div>
+        <span class="tag amber">Plant Management</span>
+    </div>
+    <div class="panel-body">
+        <div class="role-grid">
+            <div class="role-card" id="module-1">
+                <div>
+                    <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+                        <span style="font-size:18px;">&#128202;</span>
+                        <span class="smallcap" style="font-size:10px;">Executive Review</span>
+                    </div>
+                    <h3>Review Management-Level PO Approvals</h3>
+                    <p>Review and authorize applicable indirect material purchase orders escalated for Laguna site executive management approval.</p>
+                </div>
+                <div class="role-card-footer">
+                    <span class="tag amber">Pending Authorization</span>
+                    <button class="button text-btn" type="button">Review Approvals &rarr;</button>
+                </div>
+            </div>
+
+            <div class="role-card" id="module-2">
+                <div>
+                    <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+                        <span style="font-size:18px;">&#128279;</span>
+                        <span class="smallcap" style="font-size:10px;">SAP Verification</span>
+                    </div>
+                    <h3>Record External SAP Approval Evidence</h3>
+                    <p>Record executive SAP release transaction codes, authorization references, and management sign-off timestamps.</p>
+                </div>
+                <div class="role-card-footer">
+                    <span class="tag green">Authorized</span>
+                    <button class="button text-btn" type="button">Record Release &rarr;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-foot">
+        Plant-level executive governance for indirect materials.
+    </div>
+</section>
+
+<section class="panel">
+    <div class="panel-head">
+        <div>
+            <h2>Confirmed Role Responsibilities</h2>
+            <p>Client-approved operational boundaries for Laguna Manager.</p>
+        </div>
+    </div>
+    <div class="panel-body">
+        <ul style="list-style:none; padding:0; display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:12px;">
+            <li style="display:flex; gap:10px; align-items:flex-start; padding:10px 12px; background:#fbfcfd; border:1px solid var(--line); border-radius:8px;">
+                <span style="color:var(--teal); font-weight:bold;">&#10003;</span>
+                <div>
+                    <strong style="font-size:13px; color:var(--ink);">Review Management-Level PO Approvals</strong>
+                    <p style="font-size:12px; color:var(--muted); margin-top:2px;">Authorize escalated plant purchase requisitions.</p>
+                </div>
+            </li>
+            <li style="display:flex; gap:10px; align-items:flex-start; padding:10px 12px; background:#fbfcfd; border:1px solid var(--line); border-radius:8px;">
+                <span style="color:var(--teal); font-weight:bold;">&#10003;</span>
+                <div>
+                    <strong style="font-size:13px; color:var(--ink);">Record External SAP Approval Evidence</strong>
+                    <p style="font-size:12px; color:var(--muted); margin-top:2px;">Capture SAP executive release codes and audit details.</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="panel-foot">
+        Executive jurisdiction strictly over confirmed Laguna plant operational scope.
+    </div>
+</section>
+{% endblock %}

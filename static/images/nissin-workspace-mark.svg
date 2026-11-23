@@ -1,19 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" fill="none" role="img" aria-label="Nissin Procurement Workspace Mark">
-  <!-- Container background rounded tile -->
-  <rect width="48" height="48" rx="12" fill="#d8f5ec"/>
-  
-  <!-- Geometric indirect-material cube / stylized interlocking 'N' flow -->
-  <!-- Top surface (Inventory intake & receipt) -->
-  <path d="M24 9L37 16.5L24 24L11 16.5L24 9Z" fill="#14b8a6"/>
-  <path d="M24 9L37 16.5L24 21.5L11 16.5L24 9Z" fill="#2dd4bf" opacity="0.9"/>
-  
-  <!-- Left column (Stockroom / inventory hold) -->
-  <path d="M11 16.5V31.5L21 37V22.2L11 16.5Z" fill="#065f57"/>
-  
-  <!-- Right column (Procurement & fulfillment stream) -->
-  <path d="M37 16.5V31.5L27 37V22.2L37 16.5Z" fill="#007c75"/>
-  
-  <!-- Dynamic diagonal connecting flow forming the central 'N' spine -->
-  <path d="M21 22.2L27 25.8V37L21 33.4V22.2Z" fill="#0a8b83"/>
-  <path d="M21 22.2L27 25.8L21 29.5V22.2Z" fill="#5eead4" opacity="0.6"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40" fill="none" role="img" aria-label="Sample Project Indirect Materials Mark">
+  <!-- Rounded container with dark teal outline matching screenshot -->
+  <rect x="2.5" y="2.5" width="35" height="35" rx="8" stroke="#005c53" stroke-width="2.2" fill="#ffffff"/>
+  <!-- Crisp N letterform inside -->
+  <path d="M12.5 28.5V11.5H16.2L23.8 22.8V11.5H27.5V28.5H23.8L16.2 17.2V28.5H12.5Z" fill="#005c53"/>
 </svg>

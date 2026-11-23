@@ -1,0 +1,101 @@
+{% extends "accounts/dashboard_base.html" %}
+
+{% block dashboard_content %}
+<div style="display:flex; justify-content:space-between; align-items:center; background:#ffffff; border:1px solid var(--line); border-radius:var(--r); padding:16px 22px; margin-bottom:20px; box-shadow:var(--shadow-sm); flex-wrap:wrap; gap:12px;">
+    <div>
+        <strong style="color:var(--ink); font-size:14px;">ODM Review &amp; Decision Console</strong>
+        <p style="font-size:12px; color:var(--muted); margin-top:2px;">Departmental review of SAP PRs and decision outcome recording.</p>
+    </div>
+    <div style="display:flex; gap:10px;">
+        <button class="button primary" type="button" onclick="alert('Access SAP PR Review Queue.')">
+            Review SAP PR Queue
+        </button>
+        <button class="button secondary" type="button" onclick="alert('Log Decision Outcome.')">
+            Record Decision Outcome
+        </button>
+    </div>
+</div>
+
+<section class="panel">
+    <div class="panel-head">
+        <div>
+            <h2>Authorized Operational Modules</h2>
+            <p>Direct responsibilities for the ODM role.</p>
+        </div>
+        <span class="tag amber">Department Review</span>
+    </div>
+    <div class="panel-body">
+        <div class="role-grid">
+            <div class="role-card" id="module-1">
+                <div>
+                    <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+                        <span style="font-size:18px;">&#128065;</span>
+                        <span class="smallcap" style="font-size:10px;">PR Review</span>
+                    </div>
+                    <h3>Review Applicable PRs in SAP</h3>
+                    <p>Conduct department-level review of Purchase Requisitions entered into SAP to confirm operational necessity and budget allocation.</p>
+                </div>
+                <div class="role-card-footer">
+                    <span class="tag amber">Pending Review</span>
+                    <button class="button text-btn" type="button">Review PRs &rarr;</button>
+                </div>
+            </div>
+
+            <div class="role-card" id="module-2">
+                <div>
+                    <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+                        <span style="font-size:18px;">&#128203;</span>
+                        <span class="smallcap" style="font-size:10px;">Decisions &amp; Evidence</span>
+                    </div>
+                    <h3>Record Decision Outcomes &amp; Evidence</h3>
+                    <p>Record authorized decision results (Approved, Rejected, Revised) with supporting SAP evidence and remarks.</p>
+                </div>
+                <div class="role-card-footer">
+                    <span class="tag green">Authorized</span>
+                    <button class="button text-btn" type="button">Log Decision &rarr;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-foot">
+        Reviews restricted to assigned department PRs.
+    </div>
+</section>
+
+<section class="panel">
+    <div class="panel-head">
+        <div>
+            <h2>Confirmed Role Responsibilities</h2>
+            <p>Client-approved operational boundaries for ODM.</p>
+        </div>
+    </div>
+    <div class="panel-body">
+        <ul style="list-style:none; padding:0; display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:12px;">
+            <li style="display:flex; gap:10px; align-items:flex-start; padding:10px 12px; background:#fbfcfd; border:1px solid var(--line); border-radius:8px;">
+                <span style="color:var(--teal); font-weight:bold;">&#10003;</span>
+                <div>
+                    <strong style="font-size:13px; color:var(--ink);">Review Applicable PRs in SAP</strong>
+                    <p style="font-size:12px; color:var(--muted); margin-top:2px;">Validate department requisitions against business needs.</p>
+                </div>
+            </li>
+            <li style="display:flex; gap:10px; align-items:flex-start; padding:10px 12px; background:#fbfcfd; border:1px solid var(--line); border-radius:8px;">
+                <span style="color:var(--teal); font-weight:bold;">&#10003;</span>
+                <div>
+                    <strong style="font-size:13px; color:var(--ink);">Record Decision Outcomes</strong>
+                    <p style="font-size:12px; color:var(--muted); margin-top:2px;">Document official department approval or return remarks.</p>
+                </div>
+            </li>
+            <li style="display:flex; gap:10px; align-items:flex-start; padding:10px 12px; background:#fbfcfd; border:1px solid var(--line); border-radius:8px;">
+                <span style="color:var(--teal); font-weight:bold;">&#10003;</span>
+                <div>
+                    <strong style="font-size:13px; color:var(--ink);">Record Supporting Evidence</strong>
+                    <p style="font-size:12px; color:var(--muted); margin-top:2px;">Attach external SAP transaction codes and notes.</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="panel-foot">
+        Do not invent unconfirmed approval hierarchies; adheres strictly to confirmed ODM scope.
+    </div>
+</section>
+{% endblock %}
